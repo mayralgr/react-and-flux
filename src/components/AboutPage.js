@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom/cjs/react-dom.development";
+// import { render } from "react-dom/cjs/react-dom.development";
 class AboutPage extends React.PureComponent {
   render() {
     return (
