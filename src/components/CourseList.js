@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 function CourseList(props) {
+  console.log(props);
   return (
     <table className="table">
       <thead>
@@ -39,7 +40,7 @@ CourseList.propTypes = {
   ).isRequired,
 };
 
-// CourseList.defaultProps = {
-//     courses: []
-// };
+CourseList.defaultProps = {
+  courses: [],
+};
 export default CourseList;
