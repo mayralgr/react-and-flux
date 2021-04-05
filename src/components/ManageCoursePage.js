@@ -15,7 +15,7 @@ const ManageCoursePage = (props) => {
   });
 
   const [errors, setErrors] = useState({});
-
+  const [courses, setCourses] = useState(courseStore.getCourses());
   function handleChange({ target }) {
     setCourse({
       ...course,
@@ -43,12 +43,21 @@ const ManageCoursePage = (props) => {
     return Object.keys(_errors).length === 0;
   }
 
+  function onChange() {
+    setCourses(courseStore.getCourses());
+  }
+
   useEffect(() => {
+    courseStore.addChangeListener(onChange);
     const slug = props.match.params.slug;
-    if (slug) {
+
+    if (courses.length === 0) {
+      courseActions.loadCourses();
+    } else if (slug) {
       setCourse(courseStore.getCourseBySlug(slug));
     }
-  }, [props.match.params.slug]);
+    return () => courseStore.removeChangeListener(onChange);
+  }, [props.match.params.slug, courses.length]);
 
   return (
     <>

@@ -42,6 +42,23 @@ dispatcher.register((action) => {
       _courses.push(action.course);
       store.emitChange(); // anytime the store changes
       break;
+    case actionsTypes.LOAD_COURSES:
+      _courses = action.courses;
+      store.emitChange();
+      break;
+    case actionsTypes.UPDATE_COURSE:
+      _courses = _courses.map((course) =>
+        course.id === action.course.id ? action.course : course
+      );
+      store.emitChange();
+      break;
+    case actionsTypes.DELETE_COURSE:
+      // debugger;
+      _courses = _courses.filter(
+        (course) => course.id !== parseInt(action.id, 10)
+      );
+      store.emitChange();
+      break;
     default: // nothing to do here
   }
 });

@@ -1,3 +1,15 @@
+# Repo for the course
+
+Building applications with React and flux in pluralsight
+
+## Challenges to add
+
+- Show 404 page for bogus slug
+- Display author name on CoursesPage (call author api in mock api && author store)
+- Populate author dropdown via API data (list of authors in localhost 3001)
+- Create a reusable dropdown component (like the input)
+- Add author management
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
